@@ -1,6 +1,8 @@
 <?php
 
-    $router->post('/auth/login',[
+
+$router->group(['prefix' => 'auth'], function () use ($router) {
+    $router->post('/login',[
         'uses' => 'AuthController@login',
     ]);
     $router->post('/me',[
@@ -12,4 +14,4 @@
     $router->post('/refresh', [
         'uses' => 'AuthController@refresh',
     ]);
-
+});
